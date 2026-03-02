@@ -8,6 +8,7 @@ public class RoundController : MonoBehaviour
     [SerializeField] private float startingRoundTime = 45f;
     [SerializeField] private bool isTimerCounting = false;
     
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +28,7 @@ public class RoundController : MonoBehaviour
             {               
                 roundTimeRemaining = 0;
                 isTimerCounting = false;
+                
             }
         }
     }

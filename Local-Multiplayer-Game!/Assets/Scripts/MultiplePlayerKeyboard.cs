@@ -67,10 +67,26 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed * Time.deltaTime;       //Only move player 1 if the transform reference exists;
         if (p2) p2.position += new Vector3(m2, 0f, 0f) * speed * Time.deltaTime;       //Only move player 2 if the transform reference exists;
 
-        if (p1) p1.RotateAround(p1ClawR.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
 
-        if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2),  -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
-        
+        // checks the direction of the rotation for player One
+        if(g1 >0)
+        {
+            if (p1) p1.RotateAround(p1ClawL.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
+        }
+        else if(g1< 0)
+        {
+            if (p1) p1.RotateAround(p1ClawR.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
+        }
+
+        // checks the direction of the rotation for player Two
+        if (g2 > 0)
+        {
+            if (p2) p2.RotateAround(p2ClawL.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
+        }
+        else if (g2 < 0)
+        {
+            if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
+        }
 
 
         if (p1Jump.action.ReadValue<float>() == 1 && p1IsGrounded)
