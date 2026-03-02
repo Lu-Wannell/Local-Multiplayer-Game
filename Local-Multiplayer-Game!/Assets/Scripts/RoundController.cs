@@ -40,7 +40,7 @@ public class RoundController : MonoBehaviour
 
     private void roundNext()
     {
-        currentRound += currentRound;
+        currentRound += 1;
         roundTimeRemaining = startingRoundTime;
         isTimerCounting = true;
     }
