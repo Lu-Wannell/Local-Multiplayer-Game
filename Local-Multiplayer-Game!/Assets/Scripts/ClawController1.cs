@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ClawController : MonoBehaviour
@@ -22,6 +23,7 @@ public class ClawController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // while descending the claw moves towards the clawendpoint
         if (isDescending)
         {
             clawCurrentPosition.position = Vector3.MoveTowards(clawCurrentPosition.position, clawEndPoint.position, (moveSpeed * Time.deltaTime));
@@ -29,7 +31,7 @@ public class ClawController : MonoBehaviour
             if (clawCurrentPosition.position == clawEndPoint.position)
             {
                 isDescending = false;
-                isGrabbing = true;
+                isGrabbing = true;//after reaching the endpoiunt the claw will start its grab action
             }
         }
 
@@ -47,7 +49,12 @@ public class ClawController : MonoBehaviour
 
     private void clawReset()
     {
-        clawCurrentPosition.position = clawStartPoint.position;
+        clawCurrentPosition.position = clawStartPoint.position;//sets the claws position to the start position.
         isResetting = false;
+    }
+
+    IEnumerator DelayedAction( float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
     }
 }
