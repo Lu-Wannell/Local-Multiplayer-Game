@@ -12,11 +12,22 @@ public class ClawController : MonoBehaviour
     [SerializeField] private Transform clawEndPoint;
     [SerializeField] private Transform clawCurrentPosition;
 
+    [SerializeField] private HingeJoint upperLeftHinge;
+    [SerializeField] private HingeJoint lowerLeftHinge;
+    [SerializeField] private HingeJoint upperRightHinge;
+    [SerializeField] private HingeJoint lowerRightHinge;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       /* upperLeftHinge = GetComponent<HingeJoint>();
+        lowerLeftHinge = GetComponent<HingeJoint>();
+        upperRightHinge = GetComponent<HingeJoint>();
+        lowerRightHinge = GetComponent<HingeJoint>();*/
+
         
     }
 
@@ -31,12 +42,38 @@ public class ClawController : MonoBehaviour
             if (clawCurrentPosition.position == clawEndPoint.position)
             {
                 isDescending = false;
+
+                //Retrieve current motor settings
+                JointMotor ULMotor = upperLeftHinge.motor;
+                JointMotor LLMotor = lowerLeftHinge.motor;
+                JointMotor URMotor = upperRightHinge.motor;
+                JointMotor LRMotor = lowerRightHinge.motor;
+
+                // Modify existing motor settings
+                ULMotor.targetVelocity = -ULMotor.targetVelocity;
+                LLMotor.targetVelocity = -LLMotor.targetVelocity;
+                URMotor.targetVelocity = -URMotor.targetVelocity;
+                LRMotor.targetVelocity = -LRMotor.targetVelocity;
+
+                // Reassign modified motors
+                upperLeftHinge.motor = ULMotor;
+                lowerLeftHinge.motor = LLMotor;
+                upperRightHinge.motor = URMotor;
+                lowerRightHinge.motor = LRMotor;
+
+
                 isGrabbing = true;//after reaching the endpoiunt the claw will start its grab action
             }
         }
 
         if (isGrabbing) 
-        { 
+        {
+            
+
+
+        }
+        else
+        {
 
         }
 

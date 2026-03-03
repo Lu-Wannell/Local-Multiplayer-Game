@@ -1086,6 +1086,10 @@ MonoBehaviour:
   clawStartPoint: {fileID: 1621023700}
   clawEndPoint: {fileID: 403252917}
   clawCurrentPosition: {fileID: 517910043}
+  upperLeftHinge: {fileID: 850889782}
+  lowerLeftHinge: {fileID: 1268179716}
+  upperRightHinge: {fileID: 1015292653}
+  lowerRightHinge: {fileID: 1050963524}
 --- !u!1 &787002879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1294,7 @@ GameObject:
   - component: {fileID: 850889783}
   - component: {fileID: 850889782}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: ULHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1411,10 +1415,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
-    targetVelocity: 0
-    force: 0
+    targetVelocity: -10
+    force: 10
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
@@ -1473,7 +1477,7 @@ GameObject:
   - component: {fileID: 1015292649}
   - component: {fileID: 1015292653}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: URHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1621,10 +1625,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
-    targetVelocity: 0
-    force: 0
+    targetVelocity: 10
+    force: 10
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
@@ -1656,7 +1660,7 @@ GameObject:
   - component: {fileID: 1050963525}
   - component: {fileID: 1050963524}
   m_Layer: 0
-  m_Name: Cylinder (3)
+  m_Name: LRHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1776,10 +1780,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
-    targetVelocity: 0
-    force: 0
+    targetVelocity: 10
+    force: 10
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
@@ -1998,7 +2002,7 @@ GameObject:
   - component: {fileID: 1268179717}
   - component: {fileID: 1268179716}
   m_Layer: 0
-  m_Name: Cylinder (2)
+  m_Name: LLHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2118,10 +2122,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
-    targetVelocity: 0
-    force: 0
+    targetVelocity: -10
+    force: 10
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
