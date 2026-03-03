@@ -3,7 +3,7 @@ using UnityEngine;
 public class RoundController : MonoBehaviour
 {
     
-    [SerializeField] private int currentRound;
+    [SerializeField] private int currentRound = 0;
     [SerializeField] private float roundTimeRemaining = 45f;
     [SerializeField] private float startingRoundTime = 45f;
     [SerializeField] private bool isTimerCounting = false;
