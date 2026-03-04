@@ -10,6 +10,7 @@ public class RoundController : MonoBehaviour
     [SerializeField] private bool isRoundOver = false;
 
     [SerializeField] private ClawController clawController;
+    [SerializeField] private WinZone winZone;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,6 +51,7 @@ public class RoundController : MonoBehaviour
             roundTimeRemaining = startingRoundTime;
             isRoundGoing = true;
             isRoundOver = false;
+            winZone.EnablePlayer();
             clawController.clawReset();
         }
     }

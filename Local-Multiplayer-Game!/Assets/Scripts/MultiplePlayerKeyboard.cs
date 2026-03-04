@@ -16,8 +16,11 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private InputActionReference roundNext;
 
     [Header("Players")]
-    [SerializeField] private Transform p1;       //Transform for Player One
-    [SerializeField] private Transform p2;       //Transform for Player Two
+    [SerializeField] public Transform p1;       //Transform for Player One
+    [SerializeField] public Transform p2;       //Transform for Player Two
+
+    [SerializeField] public Transform p1StartPos;
+    [SerializeField] public Transform p2StartPos;
 
     [SerializeField] private Transform p1ClawR;
     [SerializeField] private Transform p1ClawL;

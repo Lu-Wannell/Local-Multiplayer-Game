@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 112705709}
   - component: {fileID: 112705708}
   - component: {fileID: 112705706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crab Two Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 239409168}
   - component: {fileID: 239409167}
   - component: {fileID: 239409166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crab One Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ Transform:
   m_GameObject: {fileID: 517910039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000000027985, y: 3.73, z: -0.000000021916}
+  m_LocalPosition: {x: 0.000000027985, y: 6, z: -0.000000021916}
   m_LocalScale: {x: 0.5304975, y: 0.81615, z: 0.81615}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   isDescending: 0
   isResetting: 0
   isGrabbing: 0
+  isClosed: 0
   canWin: 0
   grabDelay: 3.5
   moveSpeed: 0.5
@@ -1096,6 +1097,7 @@ MonoBehaviour:
   lowerLeftHinge: {fileID: 1268179716}
   upperRightHinge: {fileID: 1015292653}
   lowerRightHinge: {fileID: 1050963524}
+  winZone: {fileID: 1215897270}
 --- !u!1 &787002879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &787002880
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2042,6 +2044,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85df4c816870b6f498d1631df59c18d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinZone
+  claw: {fileID: 517910043}
+  players: {fileID: 1497220436}
+  boxCenter: {x: 0, y: 0, z: 0}
+  boxSize: {x: 1, y: 1, z: 1}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isPlayerOneWinning: 0
+  isPlayerTwoWinning: 0
+  confetti: {fileID: 1575860091}
+  multiplePlayerKeyboard: {fileID: 1417548593}
+  clawController: {fileID: 517910045}
 --- !u!65 &1215897271
 BoxCollider:
   m_ObjectHideFlags: 0

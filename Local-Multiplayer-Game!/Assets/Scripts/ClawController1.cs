@@ -6,6 +6,7 @@ public class ClawController : MonoBehaviour
     [SerializeField] private bool isDescending;
     [SerializeField] private bool isResetting = false;
     [SerializeField] private bool isGrabbing = false;
+    [SerializeField] public bool isClosed = false;
     [SerializeField] private bool canWin = false;
 
     [SerializeField] private float grabDelay = 3f;
@@ -19,6 +20,7 @@ public class ClawController : MonoBehaviour
     [SerializeField] private Transform clawEndPoint;
     [SerializeField] private Transform clawCurrentPosition;
 
+    //hingejoints for the claw
     [SerializeField] private HingeJoint upperLeftHinge;
     [SerializeField] private HingeJoint lowerLeftHinge;
     [SerializeField] private HingeJoint upperRightHinge;
@@ -120,6 +122,7 @@ public class ClawController : MonoBehaviour
 
         isResetting = false;
         isDescending = true;
+        isClosed = false;
     }
 
     IEnumerator GrabAction( float delayTime)
@@ -129,8 +132,9 @@ public class ClawController : MonoBehaviour
 
         // start moving claw back to start position
         clawCurrentPosition.position = Vector3.MoveTowards(clawCurrentPosition.position, clawStartPoint.position, (clawRiseSpeed * Time.deltaTime));
-        winZone.CheckForPlayers();
+       // winZone.CheckForPlayers();
         yield return new WaitForSeconds(delayTime);
         isGrabbing = false;
+        isClosed = true;
     }
 }

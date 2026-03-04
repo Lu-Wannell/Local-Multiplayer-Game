@@ -9,16 +9,38 @@ public class WinZone : MonoBehaviour
     public Vector3 boxSize = Vector3.one;
     public LayerMask playerLayer;
 
+    private Rigidbody winningPlayerRb;
     public bool isPlayerOneWinning = false;
     public bool isPlayerTwoWinning = false;
 
     [SerializeField] private ParticleSystem confetti;
 
     [SerializeField] private MultiplePlayerKeyboard multiplePlayerKeyboard;
+    [SerializeField] private ClawController clawController;
 
     
+    private void OnTriggerStay(Collider other)
+    {
         
-    
+        if (other.attachedRigidbody != null && clawController.isClosed && winningPlayerRb == null)
+        {
+            winningPlayerRb = other.attachedRigidbody;
+            winningPlayerRb.transform.SetParent(transform);
+            winningPlayerRb.isKinematic = true;
+            Instantiate(confetti);
+            Debug.Log(other.gameObject);
+
+        }
+    }
+
+    public void EnablePlayer()
+    {
+        multiplePlayerKeyboard.p1.position = multiplePlayerKeyboard.p1StartPos.position;
+        multiplePlayerKeyboard.p2.position = multiplePlayerKeyboard.p2StartPos.position;
+        winningPlayerRb.isKinematic = false;
+        winningPlayerRb.transform.SetParent(null);
+        winningPlayerRb = null;
+    }
 
     public void CheckForPlayers()
     {
