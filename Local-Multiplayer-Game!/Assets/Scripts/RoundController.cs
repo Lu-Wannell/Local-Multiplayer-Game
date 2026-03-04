@@ -31,6 +31,7 @@ public class RoundController : MonoBehaviour
             {               
                 roundTimeRemaining = 0;
                 isRoundGoing = false;
+                isRoundOver = true;
                 
             }
         }
@@ -43,9 +44,13 @@ public class RoundController : MonoBehaviour
 
     public void roundNext()
     {
-        currentRound += 1;
-        roundTimeRemaining = startingRoundTime;
-        isRoundGoing = true;
-        clawController.clawReset();
+        if (isRoundOver)
+        {
+            currentRound += 1;
+            roundTimeRemaining = startingRoundTime;
+            isRoundGoing = true;
+            isRoundOver = false;
+            clawController.clawReset();
+        }
     }
 }

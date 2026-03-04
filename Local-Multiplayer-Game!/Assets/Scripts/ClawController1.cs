@@ -24,6 +24,8 @@ public class ClawController : MonoBehaviour
     [SerializeField] private HingeJoint upperRightHinge;
     [SerializeField] private HingeJoint lowerRightHinge;
 
+    [SerializeField] private WinZone winZone;
+
 
 
 
@@ -127,6 +129,7 @@ public class ClawController : MonoBehaviour
 
         // start moving claw back to start position
         clawCurrentPosition.position = Vector3.MoveTowards(clawCurrentPosition.position, clawStartPoint.position, (clawRiseSpeed * Time.deltaTime));
+        winZone.CheckForPlayers();
         yield return new WaitForSeconds(delayTime);
         isGrabbing = false;
     }

@@ -41,13 +41,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
 
     private void OnEnable()        //Called when the component becomes enabled/active
     {
-        p1Move.action.Enable();          //Enables player One's input action so it can read input
-        p1Grab.action.Enable();
-        p1Jump.action.Enable();
-
-        p2Move.action.Enable();          //Enables player Two's input action so it can read input
-        p2Grab.action.Enable();
-        p2Jump.action.Enable();
+        EnablePlayerActions();
 
         roundReset.action.Enable();
         roundNext.action.Enable();
@@ -55,13 +49,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         
     private void OnDisable()        //Called when the component becomes disabled/inactive
     {
-        p1Move.action.Disable();        //Disables player One's action (stops reading input)
-        p1Grab.action.Disable();
-        p1Jump.action.Disable();
-
-        p2Move.action.Disable();        //Disables player Two's action (stops reading input)
-        p2Grab.action.Disable();
-        p2Jump.action.Disable();
+        DisablePlayerActions();
 
         roundReset.action.Disable();
         roundNext.action.Disable();
@@ -146,6 +134,28 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(rb1.position, 1f);
+    }
+
+    public void EnablePlayerActions()
+    {
+        p1Move.action.Enable();          //Enables player One's input action so it can read input
+        p1Grab.action.Enable();
+        p1Jump.action.Enable();
+
+        p2Move.action.Enable();          //Enables player Two's input action so it can read input
+        p2Grab.action.Enable();
+        p2Jump.action.Enable();
+    }
+
+    public void DisablePlayerActions()
+    {
+        p1Move.action.Disable();        //Disables player One's action (stops reading input)
+        p1Grab.action.Disable();
+        p1Jump.action.Disable();
+
+        p2Move.action.Disable();        //Disables player Two's action (stops reading input)
+        p2Grab.action.Disable();
+        p2Jump.action.Disable();
     }
 
 }
