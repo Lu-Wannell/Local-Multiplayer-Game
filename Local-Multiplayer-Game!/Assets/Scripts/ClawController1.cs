@@ -6,7 +6,11 @@ public class ClawController : MonoBehaviour
     [SerializeField] private bool isDescending;
     [SerializeField] private bool isResetting = false;
     [SerializeField] private bool isGrabbing = false;
-    [SerializeField] private float moveSpeed = 0.5f;
+    [SerializeField] private bool canWin = false;
+
+    [SerializeField] private float grabDelay = 3f;
+    [SerializeField] private float moveSpeed = 0.5f; 
+    [SerializeField] private float clawRiseSpeed = 3f;
 
     [SerializeField] private float lMVelocity;
     [SerializeField] private float rMVelocity;
@@ -69,8 +73,10 @@ public class ClawController : MonoBehaviour
             }
         }
 
+        //
         if (isGrabbing) 
         {
+            StartCoroutine(GrabAction(grabDelay));
             
 
 
@@ -114,8 +120,14 @@ public class ClawController : MonoBehaviour
         isDescending = true;
     }
 
-    IEnumerator DelayedAction( float delayTime)
+    IEnumerator GrabAction( float delayTime)
     {
+        
         yield return new WaitForSeconds(delayTime);
+
+        // start moving claw back to start position
+        clawCurrentPosition.position = Vector3.MoveTowards(clawCurrentPosition.position, clawStartPoint.position, (clawRiseSpeed * Time.deltaTime));
+        yield return new WaitForSeconds(delayTime);
+        isGrabbing = false;
     }
 }

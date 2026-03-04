@@ -6,7 +6,8 @@ public class RoundController : MonoBehaviour
     [SerializeField] private int currentRound = 0;
     [SerializeField] private float roundTimeRemaining = 45f;
     [SerializeField] private float startingRoundTime = 45f;
-    [SerializeField] private bool isTimerCounting = false;
+    [SerializeField] private bool isRoundGoing = false;
+    [SerializeField] private bool isRoundOver = false;
 
     [SerializeField] private ClawController clawController;
     
@@ -20,7 +21,7 @@ public class RoundController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTimerCounting)
+        if (isRoundGoing)
         {
             if (roundTimeRemaining > 0)
             {
@@ -29,7 +30,7 @@ public class RoundController : MonoBehaviour
             else
             {               
                 roundTimeRemaining = 0;
-                isTimerCounting = false;
+                isRoundGoing = false;
                 
             }
         }
@@ -44,7 +45,7 @@ public class RoundController : MonoBehaviour
     {
         currentRound += 1;
         roundTimeRemaining = startingRoundTime;
-        isTimerCounting = true;
+        isRoundGoing = true;
         clawController.clawReset();
     }
 }
