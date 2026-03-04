@@ -8,6 +8,9 @@ public class ClawController : MonoBehaviour
     [SerializeField] private bool isGrabbing = false;
     [SerializeField] private float moveSpeed = 0.5f;
 
+    [SerializeField] private float lMVelocity;
+    [SerializeField] private float rMVelocity;
+
     [SerializeField] private Transform clawStartPoint;
     [SerializeField] private Transform clawEndPoint;
     [SerializeField] private Transform clawCurrentPosition;
@@ -81,13 +84,34 @@ public class ClawController : MonoBehaviour
         if (isResetting)
         {
             clawReset();
+           
         }
     }
 
-    private void clawReset()
+    public void clawReset()
     {
         clawCurrentPosition.position = clawStartPoint.position;//sets the claws position to the start position.
+
+        //Retrieve current motor settings
+        JointMotor ULMotor = upperLeftHinge.motor;
+        JointMotor LLMotor = lowerLeftHinge.motor;
+        JointMotor URMotor = upperRightHinge.motor;
+        JointMotor LRMotor = lowerRightHinge.motor;
+
+        // Modify existing motor settings
+        ULMotor.targetVelocity = lMVelocity;
+        LLMotor.targetVelocity = lMVelocity;
+        URMotor.targetVelocity = rMVelocity;
+        LRMotor.targetVelocity = rMVelocity;
+
+        // Reassign modified motors
+        upperLeftHinge.motor = ULMotor;
+        lowerLeftHinge.motor = LLMotor;
+        upperRightHinge.motor = URMotor;
+        lowerRightHinge.motor = LRMotor;
+
         isResetting = false;
+        isDescending = true;
     }
 
     IEnumerator DelayedAction( float delayTime)

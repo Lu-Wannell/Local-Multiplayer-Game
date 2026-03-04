@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class MultiplePlayerKeyboard : MonoBehaviour
 {
@@ -12,6 +11,9 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private InputActionReference p2Move;
     [SerializeField] private InputActionReference p2Jump;
     [SerializeField] private InputActionReference p2Grab;
+
+    [SerializeField] private InputActionReference roundReset;
+    [SerializeField] private InputActionReference roundNext;
 
     [Header("Players")]
     [SerializeField] private Transform p1;       //Transform for Player One
@@ -34,6 +36,9 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private bool p1IsGrounded = true;
     [SerializeField] private bool p2IsGrounded = true;
 
+    [Header("Scripts")]
+    [SerializeField] private RoundController roundController;
+
     private void OnEnable()        //Called when the component becomes enabled/active
     {
         p1Move.action.Enable();          //Enables player One's input action so it can read input
@@ -43,8 +48,11 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         p2Move.action.Enable();          //Enables player Two's input action so it can read input
         p2Grab.action.Enable();
         p2Jump.action.Enable();
-    }
 
+        roundReset.action.Enable();
+        roundNext.action.Enable();
+    }
+        
     private void OnDisable()        //Called when the component becomes disabled/inactive
     {
         p1Move.action.Disable();        //Disables player One's action (stops reading input)
@@ -54,6 +62,9 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         p2Move.action.Disable();        //Disables player Two's action (stops reading input)
         p2Grab.action.Disable();
         p2Jump.action.Disable();
+
+        roundReset.action.Disable();
+        roundNext.action.Disable();
     }
 
     private void Update()
@@ -100,6 +111,16 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         {
             rb2.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
             p2IsGrounded = false;
+        }
+
+        if (roundReset.action.ReadValue<float>() == 1)
+        {
+            roundController.roundReset();
+        }
+
+        if (roundNext.action.ReadValue<float>() == 1)
+        {
+            roundController.roundNext();
         }
 
         Collider[] hitcolliders = Physics.OverlapSphere(rb1.position, 1f);

@@ -32,6 +32,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RoundReset",
+                    "type": "Button",
+                    "id": "38d26fa0-17c1-4e5b-912c-e15700ee6bf7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextRound",
+                    "type": "Button",
+                    "id": "1e495340-ffdb-46b2-80eb-bbd475a80dc3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -111,6 +129,28 @@
                     "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9784e172-a2f8-4519-b85f-a0b1119d768c",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RoundReset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26cb9444-b4b7-405a-a4bf-bf225dc59eb2",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextRound",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

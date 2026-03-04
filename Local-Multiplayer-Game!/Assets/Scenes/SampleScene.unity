@@ -1083,6 +1083,8 @@ MonoBehaviour:
   isResetting: 0
   isGrabbing: 0
   moveSpeed: 0.5
+  lMVelocity: -10
+  rMVelocity: 10
   clawStartPoint: {fileID: 1621023700}
   clawEndPoint: {fileID: 403252917}
   clawCurrentPosition: {fileID: 517910043}
@@ -1860,6 +1862,7 @@ MonoBehaviour:
   roundTimeRemaining: 45
   startingRoundTime: 45
   isTimerCounting: 0
+  clawController: {fileID: 517910045}
 --- !u!4 &1105294489
 Transform:
   m_ObjectHideFlags: 0
@@ -2204,6 +2207,8 @@ MonoBehaviour:
   p2Move: {fileID: 6021238129205890589, guid: a894db74c06e4294b91575307e68b483, type: 3}
   p2Jump: {fileID: -4276537069490818371, guid: a894db74c06e4294b91575307e68b483, type: 3}
   p2Grab: {fileID: 8122446997872938877, guid: a894db74c06e4294b91575307e68b483, type: 3}
+  roundReset: {fileID: 7691480984973840157, guid: a894db74c06e4294b91575307e68b483, type: 3}
+  roundNext: {fileID: 5584078952022810728, guid: a894db74c06e4294b91575307e68b483, type: 3}
   p1: {fileID: 239409170}
   p2: {fileID: 112705707}
   p1ClawR: {fileID: 1486901053}
@@ -2217,6 +2222,7 @@ MonoBehaviour:
   jumpVelocity: 0.1
   p1IsGrounded: 1
   p2IsGrounded: 1
+  roundController: {fileID: 1105294488}
 --- !u!4 &1417548594
 Transform:
   m_ObjectHideFlags: 0

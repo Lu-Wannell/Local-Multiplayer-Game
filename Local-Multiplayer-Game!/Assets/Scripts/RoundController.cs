@@ -7,6 +7,8 @@ public class RoundController : MonoBehaviour
     [SerializeField] private float roundTimeRemaining = 45f;
     [SerializeField] private float startingRoundTime = 45f;
     [SerializeField] private bool isTimerCounting = false;
+
+    [SerializeField] private ClawController clawController;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,15 +35,16 @@ public class RoundController : MonoBehaviour
         }
     }
 
-    private void roundReset()
+    public void roundReset()
     {
         currentRound = 1;
     }
 
-    private void roundNext()
+    public void roundNext()
     {
         currentRound += 1;
         roundTimeRemaining = startingRoundTime;
         isTimerCounting = true;
+        clawController.clawReset();
     }
 }
