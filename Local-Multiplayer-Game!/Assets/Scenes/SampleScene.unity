@@ -513,6 +513,7 @@ Transform:
   m_Children:
   - {fileID: 1486901053}
   - {fileID: 131790256}
+  - {fileID: 1414518452}
   m_Father: {fileID: 1497220436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302312050
@@ -936,7 +937,7 @@ GameObject:
   - component: {fileID: 517910040}
   - component: {fileID: 517910044}
   - component: {fileID: 517910045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: The Claw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1301,7 +1302,7 @@ GameObject:
   - component: {fileID: 850889779}
   - component: {fileID: 850889783}
   - component: {fileID: 850889782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ULHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,8 +1318,8 @@ Transform:
   m_GameObject: {fileID: 850889777}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.31138575, w: 0.9502836}
-  m_LocalPosition: {x: -0.73, y: -1.3, z: -0.000000039761993}
-  m_LocalScale: {x: 0.51917, y: 0.51917, z: 0.51917}
+  m_LocalPosition: {x: -0.8, y: -1.4, z: -0.000000039761993}
+  m_LocalScale: {x: 0.51917, y: 0.6, z: 0.51917}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1268179712}
@@ -1425,8 +1426,8 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: -20
-    force: 20
+    targetVelocity: -2000
+    force: 2000
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
@@ -1451,7 +1452,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850889777}
   serializedVersion: 5
-  m_Mass: 200
+  m_Mass: 20000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1470,6 +1471,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!1 &909457684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909457685}
+  m_Layer: 0
+  m_Name: P1StartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &909457685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909457684}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.36, y: -1.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1497220436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015292647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,7 +1516,7 @@ GameObject:
   - component: {fileID: 1015292650}
   - component: {fileID: 1015292649}
   - component: {fileID: 1015292653}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: URHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1500,8 +1532,8 @@ Transform:
   m_GameObject: {fileID: 1015292647}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.31138965, w: 0.9502824}
-  m_LocalPosition: {x: 0.73, y: -1.3, z: -0.000000039761993}
-  m_LocalScale: {x: 0.51917, y: 0.51917, z: 0.51917}
+  m_LocalPosition: {x: 0.8, y: -1.4, z: -0.000000039761993}
+  m_LocalScale: {x: 0.51917, y: 0.6, z: 0.51917}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1050963520}
@@ -1515,7 +1547,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015292647}
   serializedVersion: 5
-  m_Mass: 200
+  m_Mass: 20000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1635,8 +1667,8 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: 20
-    force: 20
+    targetVelocity: 2000
+    force: 2000
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
@@ -1667,7 +1699,7 @@ GameObject:
   - component: {fileID: 1050963521}
   - component: {fileID: 1050963525}
   - component: {fileID: 1050963524}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LRHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1682,9 +1714,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050963519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.58778524, w: 0.809017}
-  m_LocalPosition: {x: -1, y: -1.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.5877853, w: 0.809017}
+  m_LocalPosition: {x: -1.1709801, y: -1.3237277, z: 0}
+  m_LocalScale: {x: 0.6695634, y: 1.1291718, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1015292648}
@@ -1790,8 +1822,8 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: 10
-    force: 10
+    targetVelocity: 1000
+    force: 1000
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
@@ -1816,7 +1848,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050963519}
   serializedVersion: 5
-  m_Mass: 20
+  m_Mass: 2000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1870,7 +1902,7 @@ MonoBehaviour:
   isRoundGoing: 0
   isRoundOver: 1
   clawController: {fileID: 517910045}
-  winZone: {fileID: 0}
+  winZone: {fileID: 1215897270}
 --- !u!4 &1105294489
 Transform:
   m_ObjectHideFlags: 0
@@ -2011,7 +2043,7 @@ GameObject:
   - component: {fileID: 1215897272}
   - component: {fileID: 1215897271}
   - component: {fileID: 1215897270}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WinZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2070,7 +2102,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -2149,7 +2181,7 @@ GameObject:
   - component: {fileID: 1268179713}
   - component: {fileID: 1268179717}
   - component: {fileID: 1268179716}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LLHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2165,8 +2197,8 @@ Transform:
   m_GameObject: {fileID: 1268179711}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.59181285, w: 0.80607545}
-  m_LocalPosition: {x: 1, y: -1.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.1709673, y: -1.323736, z: 0}
+  m_LocalScale: {x: 0.6691864, y: 1.2245282, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 850889778}
@@ -2272,8 +2304,8 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 1
   m_Motor:
-    targetVelocity: -10
-    force: 10
+    targetVelocity: -1000
+    force: 1000
     freeSpin: 0
   m_UseLimits: 1
   m_ExtendedLimits: 0
@@ -2298,7 +2330,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268179711}
   serializedVersion: 5
-  m_Mass: 20
+  m_Mass: 2000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2401,12 +2433,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414518450}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.93, y: 2.12, z: 0}
-  m_LocalScale: {x: 0.3134, y: 0.328, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.022, y: 0.11, z: -1}
+  m_LocalScale: {x: 0.17821805, y: 0.18652049, z: 0.56866}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 239409170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1417548592
 GameObject:
@@ -2447,8 +2479,8 @@ MonoBehaviour:
   roundNext: {fileID: 5584078952022810728, guid: a894db74c06e4294b91575307e68b483, type: 3}
   p1: {fileID: 239409170}
   p2: {fileID: 112705707}
-  p1StartPos: {fileID: 0}
-  p2StartPos: {fileID: 0}
+  p1StartPos: {fileID: 909457685}
+  p2StartPos: {fileID: 1700189463}
   p1ClawR: {fileID: 1486901053}
   p1ClawL: {fileID: 131790256}
   p2ClawR: {fileID: 1476107850}
@@ -2843,6 +2875,8 @@ Transform:
   m_Children:
   - {fileID: 239409170}
   - {fileID: 112705707}
+  - {fileID: 909457685}
+  - {fileID: 1700189463}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1575860089
@@ -7771,6 +7805,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1700189462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700189463}
+  m_Layer: 0
+  m_Name: P2StartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1700189463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700189462}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.98, y: -1.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1497220436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1850075313
 GameObject:
   m_ObjectHideFlags: 0
@@ -7933,4 +7998,3 @@ SceneRoots:
   - {fileID: 787002884}
   - {fileID: 1105294489}
   - {fileID: 1575860092}
-  - {fileID: 1414518452}

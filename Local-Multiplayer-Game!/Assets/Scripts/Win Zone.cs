@@ -37,9 +37,13 @@ public class WinZone : MonoBehaviour
     {
         multiplePlayerKeyboard.p1.position = multiplePlayerKeyboard.p1StartPos.position;
         multiplePlayerKeyboard.p2.position = multiplePlayerKeyboard.p2StartPos.position;
-        winningPlayerRb.isKinematic = false;
-        winningPlayerRb.transform.SetParent(null);
-        winningPlayerRb = null;
+        if (winningPlayerRb != null)
+        {
+            winningPlayerRb.isKinematic = false;
+            winningPlayerRb.transform.SetParent(null);
+            winningPlayerRb = null;
+        }
+        
     }
 
     public void CheckForPlayers()
