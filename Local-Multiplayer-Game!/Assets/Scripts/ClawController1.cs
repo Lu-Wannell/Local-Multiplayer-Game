@@ -48,6 +48,7 @@ public class ClawController : MonoBehaviour
         // while descending the claw moves towards the clawendpoint
         if (isDescending)
         {
+            isClosed = false;
             clawCurrentPosition.position = Vector3.MoveTowards(clawCurrentPosition.position, clawEndPoint.position, (moveSpeed * Time.deltaTime));
 
             if (clawCurrentPosition.position == clawEndPoint.position)

@@ -27,6 +27,7 @@ public class WinZone : MonoBehaviour
             winningPlayerRb = other.attachedRigidbody;
             winningPlayerRb.transform.SetParent(transform);
             winningPlayerRb.isKinematic = true;
+            multiplePlayerKeyboard.DisablePlayerActions();
             Instantiate(confetti);
             Debug.Log(other.gameObject);
 
@@ -37,6 +38,7 @@ public class WinZone : MonoBehaviour
     {
         multiplePlayerKeyboard.p1.position = multiplePlayerKeyboard.p1StartPos.position;
         multiplePlayerKeyboard.p2.position = multiplePlayerKeyboard.p2StartPos.position;
+        multiplePlayerKeyboard.EnablePlayerActions();
         if (winningPlayerRb != null)
         {
             winningPlayerRb.isKinematic = false;
