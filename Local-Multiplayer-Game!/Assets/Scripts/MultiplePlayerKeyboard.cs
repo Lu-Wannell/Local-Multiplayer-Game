@@ -90,14 +90,14 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
         }
 
-
+        //jump for player one only when on the ground
         if (p1Jump.action.ReadValue<float>() == 1 && p1IsGrounded)
         {
             rb1.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
             p1IsGrounded = false;
         }
 
-
+        //jump for player two only when on the ground
         if (p2Jump.action.ReadValue<float>() == 1 && p2IsGrounded)
         {
             rb2.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
@@ -137,6 +137,13 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(rb1.position, 1f);
+    }
+
+    public void playerRotationReset()
+    {
+        //Reset all rotations of players to zero
+        p1.eulerAngles = new Vector3(0, 0, 0);
+        p2.eulerAngles = new Vector3(0, 0, 0);
     }
 
     public void EnablePlayerActions()

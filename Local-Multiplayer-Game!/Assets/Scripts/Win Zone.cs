@@ -39,6 +39,7 @@ public class WinZone : MonoBehaviour
         multiplePlayerKeyboard.p1.position = multiplePlayerKeyboard.p1StartPos.position;
         multiplePlayerKeyboard.p2.position = multiplePlayerKeyboard.p2StartPos.position;
         multiplePlayerKeyboard.EnablePlayerActions();
+        multiplePlayerKeyboard.playerRotationReset();
         if (winningPlayerRb != null)
         {
             winningPlayerRb.isKinematic = false;
