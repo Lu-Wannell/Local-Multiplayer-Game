@@ -46,6 +46,11 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private GameObject p2GrabbedObjectR;
     [SerializeField] private GameObject p2GrabbedObjectL;
 
+    [SerializeField] public GameObject p1GrabbableObjectR;
+    [SerializeField] public GameObject p1GrabbableObjectL;
+    [SerializeField] public GameObject p2GrabbableObjectR;
+    [SerializeField] public GameObject p2GrabbableObjectL;
+
     [Header("Level")]
     [SerializeField] private bool p1IsGrounded = true;
     [SerializeField] private bool p2IsGrounded = true;
@@ -107,14 +112,20 @@ public class MultiplePlayerKeyboard : MonoBehaviour
 
 
         // checks the direction of the rotation for player One
-        if (g1 >0)//Left Claw
+        if (g1 <0)//Left Claw
         {
+            Setgrabbable(p1GrabbableObjectL, p1GrabbedObjectL);
+            Debug.Log(p1GrabbedObjectL);
             if (p1) p1.RotateAround(p1ClawL.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
-            if (p1GrabbedObjectL != null) { GrabObject(p1Grab, p1GrabbedObjectL, p1ClawL); }    
+            //Debug.Log(p1GrabbedObjectL);
+            if (p1GrabbedObjectL != null) { GrabObject(p1Grab, p1GrabbedObjectL, p1ClawL); }
+            
         }
-        else if(g1< 0)//Right Claw
+        else if(g1> 0)//Right Claw
         {
-            if (p1) p1.RotateAround(p1ClawR.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
+            Setgrabbable(p1GrabbableObjectR, p1GrabbedObjectR);
+            if (p1) p1.RotateAround(p1ClawR.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;     
+            //Debug.Log("Right");
             if (p1GrabbedObjectR != null) { GrabObject(p1Grab, p1GrabbedObjectR, p1ClawR); }
         }
         else
@@ -124,11 +135,11 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         }
 
         // checks the direction of the rotation for player Two
-        if (g2 > 0)//Left Claw
+        if (g2 < 0)//Left Claw
         {
             if (p2) p2.RotateAround(p2ClawL.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
         }
-        else if (g2 < 0)//Right Claw
+        else if (g2 > 0)//Right Claw
         {
             if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
         }
@@ -187,20 +198,35 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         Gizmos.DrawSphere(rb1.position, 1f);
     }
 
+    private void Setgrabbable(GameObject grabbable, GameObject grabbedObject)
+    {    
+        if(grabbable != null)
+        {  
+            grabbedObject = grabbable;
+        }
+    }
+
     private void GrabObject(InputActionReference grabReference, GameObject grabbedObject, Transform parentClaw)
     {
         if (grabReference.action.WasPressedThisFrame())
         {
+            //Debug.Log(grabbedObject);
             grabbedObject.transform.SetParent(parentClaw);
+            Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
         }
         else { return; }
         
     }
+    //called when a player drops an item
     private void DropObject(InputActionReference grabReference, GameObject grabbedObject)
     {
         if (grabReference.action.WasReleasedThisFrame())
         {
+            Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
             grabbedObject.transform.SetParent(null);
+            //grabbedObject = null;
         }
         else { return; }
     }
