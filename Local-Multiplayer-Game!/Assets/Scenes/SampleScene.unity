@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 112705709}
   - component: {fileID: 112705708}
   - component: {fileID: 112705706}
+  - component: {fileID: 112705711}
   m_Layer: 6
   m_Name: Crab Two Body
   m_TagString: Player
@@ -175,13 +176,14 @@ Transform:
   m_GameObject: {fileID: 112705705}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.51, y: 0, z: 0}
+  m_LocalPosition: {x: 6.43, y: 0.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1476107850}
   - {fileID: 1490929267}
   - {fileID: 538859109}
+  - {fileID: 628665111}
   m_Father: {fileID: 1497220436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &112705708
@@ -203,8 +205,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1899514, y: 0.9269421, z: 1}
+  m_Center: {x: 0.0073063374, y: -0.036528945, z: 0}
 --- !u!23 &112705709
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -262,6 +264,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112705705}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &112705711
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112705705}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.54421234
+  m_Height: 1.4035091
+  m_Direction: 0
+  m_Center: {x: 0.03462696, y: -0.024562359, z: 0}
 --- !u!1 &131790255
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +637,7 @@ GameObject:
   - component: {fileID: 239409168}
   - component: {fileID: 239409167}
   - component: {fileID: 239409166}
+  - component: {fileID: 239409171}
   m_Layer: 6
   m_Name: Crab One Body
   m_TagString: Player
@@ -665,8 +691,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2191734, y: 1, z: 1}
+  m_Center: {x: 0.036529064, y: 0, z: 0}
 --- !u!23 &239409168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -740,8 +766,32 @@ Transform:
   - {fileID: 1486901053}
   - {fileID: 131790256}
   - {fileID: 1414518452}
+  - {fileID: 1455206888}
   m_Father: {fileID: 1497220436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &239409171
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239409165}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.54421234
+  m_Height: 1.3979094
+  m_Direction: 0
+  m_Center: {x: -0.0073689222, y: -0.024562359, z: 0}
 --- !u!1 &302312050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1466,73 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &628665110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628665111}
+  - component: {fileID: 628665112}
+  - component: {fileID: 628665113}
+  m_Layer: 6
+  m_Name: Leg checker Green
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628665111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628665110}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 112705707}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &628665112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628665110}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2270334, y: 0.19207573, z: 1}
+  m_Center: {x: 0.003067851, y: 0.041936874, z: 0}
+--- !u!114 &628665113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628665110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae4b89fb587caa41baedaa7944edcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerDetector
+  canWalk: 0
 --- !u!1 &787002879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,6 +3105,9 @@ MonoBehaviour:
   p2ClawL: {fileID: 1490929267}
   rb1: {fileID: 239409166}
   rb2: {fileID: 112705706}
+  redTrigger: {fileID: 1455206890}
+  greenTrigger: {fileID: 628665113}
+  maxSpeed: 5
   speed: 5
   rotationSpeed: 100
   jumpVelocity: 0.1
@@ -3009,6 +3129,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1497220436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1455206887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1455206888}
+  - component: {fileID: 1455206889}
+  - component: {fileID: 1455206890}
+  m_Layer: 6
+  m_Name: Leg checker Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1455206888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455206887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 239409170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1455206889
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455206887}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2270334, y: 0.19207573, z: 1}
+  m_Center: {x: 0.003067851, y: 0.041936874, z: 0}
+--- !u!114 &1455206890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455206887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae4b89fb587caa41baedaa7944edcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerDetector
+  canWalk: 0
 --- !u!1 &1476107849
 GameObject:
   m_ObjectHideFlags: 0

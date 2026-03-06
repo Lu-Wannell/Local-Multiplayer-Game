@@ -31,6 +31,10 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private Rigidbody rb1;
     [SerializeField] private Rigidbody rb2;
 
+    [SerializeField] private TriggerDetector redTrigger;
+    [SerializeField] private TriggerDetector greenTrigger;
+
+    [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private float jumpVelocity = 0.1f;
@@ -66,12 +70,38 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         var g1 = p1Grab.action.ReadValue<float>();
         var g2 = p2Grab.action.ReadValue<float>();
 
-        if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed * Time.deltaTime;       //Only move player 1 if the transform reference exists;
-        if (p2) p2.position += new Vector3(m2, 0f, 0f) * speed * Time.deltaTime;       //Only move player 2 if the transform reference exists;
+        float p1eularZ = p1.transform.eulerAngles.z;
+        float p1currentAngle = Mathf.DeltaAngle(0f, p1eularZ);
 
+        if (redTrigger.canWalk)
+        {
+
+            if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed * Time.deltaTime;       //Only move player 1 if the transform reference exists and if can walk;
+
+
+        }
+        else if (p1currentAngle >= -60f && p1currentAngle <= 60f)
+        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed / 3 * 2 * Time.deltaTime; }
+        else { if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed / 16 * Time.deltaTime; }
+        /*else if (rb1.rotation.z < 60 && rb1.rotation.z > (-60))
+        { if (p1) p1.position += (new Vector3(m1, 0f, 0f) * speed) / 3 * 2 * Time.deltaTime; }
+        else
+        { } //if (p1) p1.position += (new Vector3(m1, 0f, 0f) * speed)/16 * Time.deltaTime; }*/
+
+        float p2eularZ = p2.transform.eulerAngles.z;
+        float p2currentAngle = Mathf.DeltaAngle(0f, p2eularZ);
+        
+        
+        if (greenTrigger.canWalk)
+        {
+            if (p2) p2.position += new Vector3(m2, 0f, 0f) * speed * Time.deltaTime;       //Only move player 2 if the transform reference exists and if can walk;
+        }
+        else if (p2currentAngle >= -60f && p2currentAngle <= 60f)
+        { if (p2) p2.position += new Vector3(m1, 0f, 0f) * speed / 3 * 2 * Time.deltaTime; }
+        else { if (p2) p2.position += new Vector3(m1, 0f, 0f) * speed /16 * Time.deltaTime; }
 
         // checks the direction of the rotation for player One
-        if(g1 >0)
+        if (g1 >0)
         {
             if (p1) p1.RotateAround(p1ClawL.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
         }
