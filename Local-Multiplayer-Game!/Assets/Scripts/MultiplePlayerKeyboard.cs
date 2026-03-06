@@ -106,16 +106,19 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         {
             if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed * Time.deltaTime;       //Only move player 2 if the transform reference exists and if can walk;
         }
-        else if (p2currentAngle >= -60f && p2currentAngle <= 60f)
-        { if (p2) p2.position += new Vector3(m1, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime; }
-        else { if (p2) p2.position += new Vector3(m1, 0f, 0f) * currentSpeed /16 * Time.deltaTime; }
+        else if (p2currentAngle >= -60f && p2currentAngle <= 60f) //if crab tipped over but still within angle range it has slightly slower speed
+        { if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime; }
+        else //large speed reduction when not able to touch ground with either set of legs
+        { if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed / 16 * Time.deltaTime; }
 
 
         // checks the direction of the rotation for player One
         if (g1 <0)//Left Claw
         {
-            Setgrabbable(p1GrabbableObjectL, p1GrabbedObjectL);
-            Debug.Log(p1GrabbedObjectL);
+            if(p1GrabbableObjectL != null)
+            { p1GrabbedObjectL = p1GrabbableObjectL; }
+                
+            
             if (p1) p1.RotateAround(p1ClawL.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
             //Debug.Log(p1GrabbedObjectL);
             if (p1GrabbedObjectL != null) { GrabObject(p1Grab, p1GrabbedObjectL, p1ClawL); }
@@ -123,25 +126,44 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         }
         else if(g1> 0)//Right Claw
         {
-            Setgrabbable(p1GrabbableObjectR, p1GrabbedObjectR);
+            if (p1GrabbableObjectR != null)
+            { p1GrabbedObjectR = p1GrabbableObjectR; }
+
             if (p1) p1.RotateAround(p1ClawR.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;     
             //Debug.Log("Right");
             if (p1GrabbedObjectR != null) { GrabObject(p1Grab, p1GrabbedObjectR, p1ClawR); }
         }
         else
         {
-            if (p1GrabbedObjectR != null) { DropObject(p1Grab, p1GrabbedObjectR); }
-            if (p1GrabbedObjectL != null) { DropObject(p1Grab, p1GrabbedObjectL); }
+            if (p1GrabbedObjectR != null) { DropObject(p1Grab, p1GrabbedObjectR); p1GrabbedObjectR = null; }
+            if (p1GrabbedObjectL != null) { DropObject(p1Grab, p1GrabbedObjectL); p1GrabbedObjectL = null; }
         }
 
         // checks the direction of the rotation for player Two
         if (g2 < 0)//Left Claw
         {
-            if (p2) p2.RotateAround(p2ClawL.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
+            if (p2GrabbableObjectL != null)
+            { p2GrabbedObjectL = p2GrabbableObjectL; }
+
+
+            if (p2) p2.RotateAround(p2ClawL.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
+            //Debug.Log(p1GrabbedObjectL);
+            if (p2GrabbedObjectL != null) { GrabObject(p2Grab, p2GrabbedObjectL, p2ClawL); }
+
         }
         else if (g2 > 0)//Right Claw
         {
-            if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
+            if (p2GrabbableObjectR != null)
+            { p2GrabbedObjectR = p2GrabbableObjectR; }
+
+            if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;     
+            //Debug.Log("Right");
+            if (p2GrabbedObjectR != null) { GrabObject(p2Grab, p2GrabbedObjectR, p2ClawR); }
+        }
+        else
+        {
+            if (p2GrabbedObjectR != null) { DropObject(p2Grab, p2GrabbedObjectR); p2GrabbedObjectR = null; }
+            if (p2GrabbedObjectL != null) { DropObject(p2Grab, p2GrabbedObjectL); p2GrabbedObjectL = null; }
         }
 
         //jump for player one only when on the ground
@@ -198,19 +220,14 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         Gizmos.DrawSphere(rb1.position, 1f);
     }
 
-    private void Setgrabbable(GameObject grabbable, GameObject grabbedObject)
-    {    
-        if(grabbable != null)
-        {  
-            grabbedObject = grabbable;
-        }
-    }
+    
 
     private void GrabObject(InputActionReference grabReference, GameObject grabbedObject, Transform parentClaw)
     {
+        Debug.Log("InsideGrab");
         if (grabReference.action.WasPressedThisFrame())
         {
-            //Debug.Log(grabbedObject);
+            Debug.Log("InsideIf");
             grabbedObject.transform.SetParent(parentClaw);
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
@@ -226,7 +243,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             grabbedObject.transform.SetParent(null);
-            //grabbedObject = null;
+            grabbedObject = null;
         }
         else { return; }
     }
