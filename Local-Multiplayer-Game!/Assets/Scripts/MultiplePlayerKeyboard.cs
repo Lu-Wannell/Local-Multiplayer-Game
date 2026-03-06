@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -34,10 +35,16 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private TriggerDetector redTrigger;
     [SerializeField] private TriggerDetector greenTrigger;
 
-    [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float crabSpeed = 5f;
+    [SerializeField] private float currentSpeed = 5f;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private float jumpVelocity = 0.1f;
+
+    [Header("Grab Settings")]
+    [SerializeField] private GameObject p1GrabbedObjectR;
+    [SerializeField] private GameObject p1GrabbedObjectL;
+    [SerializeField] private GameObject p2GrabbedObjectR;
+    [SerializeField] private GameObject p2GrabbedObjectL;
 
     [Header("Level")]
     [SerializeField] private bool p1IsGrounded = true;
@@ -76,17 +83,15 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         if (redTrigger.canWalk)
         {
 
-            if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed * Time.deltaTime;       //Only move player 1 if the transform reference exists and if can walk;
+            if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed * Time.deltaTime;       //Only move player 1 if the transform reference exists and if can walk;
 
 
         }
-        else if (p1currentAngle >= -60f && p1currentAngle <= 60f)
-        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed / 3 * 2 * Time.deltaTime; }
-        else { if (p1) p1.position += new Vector3(m1, 0f, 0f) * speed / 16 * Time.deltaTime; }
-        /*else if (rb1.rotation.z < 60 && rb1.rotation.z > (-60))
-        { if (p1) p1.position += (new Vector3(m1, 0f, 0f) * speed) / 3 * 2 * Time.deltaTime; }
-        else
-        { } //if (p1) p1.position += (new Vector3(m1, 0f, 0f) * speed)/16 * Time.deltaTime; }*/
+        else if (p1currentAngle >= -60f && p1currentAngle <= 60f) //if crab tipped over but still within angle range it has slightly slower speed
+        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime; }
+        else //large speed reduction when not able to touch ground with either set of legs
+        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed / 16 * Time.deltaTime; }
+       
 
         float p2eularZ = p2.transform.eulerAngles.z;
         float p2currentAngle = Mathf.DeltaAngle(0f, p2eularZ);
@@ -94,28 +99,36 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         
         if (greenTrigger.canWalk)
         {
-            if (p2) p2.position += new Vector3(m2, 0f, 0f) * speed * Time.deltaTime;       //Only move player 2 if the transform reference exists and if can walk;
+            if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed * Time.deltaTime;       //Only move player 2 if the transform reference exists and if can walk;
         }
         else if (p2currentAngle >= -60f && p2currentAngle <= 60f)
-        { if (p2) p2.position += new Vector3(m1, 0f, 0f) * speed / 3 * 2 * Time.deltaTime; }
-        else { if (p2) p2.position += new Vector3(m1, 0f, 0f) * speed /16 * Time.deltaTime; }
+        { if (p2) p2.position += new Vector3(m1, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime; }
+        else { if (p2) p2.position += new Vector3(m1, 0f, 0f) * currentSpeed /16 * Time.deltaTime; }
+
 
         // checks the direction of the rotation for player One
-        if (g1 >0)
+        if (g1 >0)//Left Claw
         {
             if (p1) p1.RotateAround(p1ClawL.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
+            if (p1GrabbedObjectL != null) { GrabObject(p1Grab, p1GrabbedObjectL, p1ClawL); }    
         }
-        else if(g1< 0)
+        else if(g1< 0)//Right Claw
         {
             if (p1) p1.RotateAround(p1ClawR.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
+            if (p1GrabbedObjectR != null) { GrabObject(p1Grab, p1GrabbedObjectR, p1ClawR); }
+        }
+        else
+        {
+            if (p1GrabbedObjectR != null) { DropObject(p1Grab, p1GrabbedObjectR); }
+            if (p1GrabbedObjectL != null) { DropObject(p1Grab, p1GrabbedObjectL); }
         }
 
         // checks the direction of the rotation for player Two
-        if (g2 > 0)
+        if (g2 > 0)//Left Claw
         {
             if (p2) p2.RotateAround(p2ClawL.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
         }
-        else if (g2 < 0)
+        else if (g2 < 0)//Right Claw
         {
             if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 2 if the transform reference exists;
         }
@@ -134,6 +147,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             p2IsGrounded = false;
         }
 
+
         if (roundReset.action.ReadValue<float>() == 1)
         {
             roundController.roundReset();
@@ -144,6 +158,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             roundController.roundNext();
         }
 
+        //checks if player 1 is grounded
         Collider[] hitcolliders = Physics.OverlapSphere(rb1.position, 1f);
         foreach (var hitcollider in hitcolliders)
         {
@@ -153,6 +168,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             }
         }
 
+        // checks if player 2 is grounded
         Collider[] hitcolliders2 = Physics.OverlapSphere(rb2.position, 1f);
         foreach (var hitcollider in hitcolliders2)
         {
@@ -164,9 +180,29 @@ public class MultiplePlayerKeyboard : MonoBehaviour
 
 
     }
+
+    //a gizmo for player 1 ground check
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(rb1.position, 1f);
+    }
+
+    private void GrabObject(InputActionReference grabReference, GameObject grabbedObject, Transform parentClaw)
+    {
+        if (grabReference.action.WasPressedThisFrame())
+        {
+            grabbedObject.transform.SetParent(parentClaw);
+        }
+        else { return; }
+        
+    }
+    private void DropObject(InputActionReference grabReference, GameObject grabbedObject)
+    {
+        if (grabReference.action.WasReleasedThisFrame())
+        {
+            grabbedObject.transform.SetParent(null);
+        }
+        else { return; }
     }
 
     public void playerRotationReset()
