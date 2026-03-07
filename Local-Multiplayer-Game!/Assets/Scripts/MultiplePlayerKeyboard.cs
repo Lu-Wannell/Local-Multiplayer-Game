@@ -166,6 +166,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             if (p2GrabbedObjectL != null) { DropObject(p2Grab, p2GrabbedObjectL); p2GrabbedObjectL = null; }
         }
 
+        Debug.Log(p1IsGrounded);
         //jump for player one only when on the ground
         if (p1Jump.action.ReadValue<float>() == 1 && p1IsGrounded)
         {
@@ -195,7 +196,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         Collider[] hitcolliders = Physics.OverlapSphere(rb1.position, 1f);
         foreach (var hitcollider in hitcolliders)
         {
-            if (hitcollider.tag == "Ground")
+            if (hitcollider.tag == "Ground" && hitcollider.tag != "Claw" && hitcollider.gameObject != p1GrabbedObjectL && hitcollider.gameObject != p1GrabbedObjectR)
             {
                 p1IsGrounded = true;
             }
@@ -205,7 +206,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         Collider[] hitcolliders2 = Physics.OverlapSphere(rb2.position, 1f);
         foreach (var hitcollider in hitcolliders2)
         {
-            if (hitcollider.tag == "Ground")
+            if (hitcollider.tag == "Ground" && hitcollider.tag != "Claw" && hitcollider.gameObject != p2GrabbedObjectL && hitcollider.gameObject != p2GrabbedObjectR)
             {
                 p2IsGrounded = true;
             }
@@ -232,7 +233,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
         }
-        else { return; }
+        
         
     }
     //called when a player drops an item
@@ -245,7 +246,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             grabbedObject.transform.SetParent(null);
             grabbedObject = null;
         }
-        else { return; }
+        
     }
 
     public void playerRotationReset()
