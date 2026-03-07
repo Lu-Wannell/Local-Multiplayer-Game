@@ -28,6 +28,8 @@ public class ClawController : MonoBehaviour
 
     [SerializeField] private WinZone winZone;
 
+    [SerializeField] private ObjectShaker clawShaker;
+
 
 
 
@@ -53,6 +55,7 @@ public class ClawController : MonoBehaviour
 
             if (clawCurrentPosition.position == clawEndPoint.position)
             {
+                clawShaker.ShakeClaw();
                 isDescending = false;
 
                 //Retrieve current motor settings

@@ -1279,6 +1279,7 @@ GameObject:
   - component: {fileID: 517910040}
   - component: {fileID: 517910044}
   - component: {fileID: 517910045}
+  - component: {fileID: 517910046}
   m_Layer: 7
   m_Name: The Claw
   m_TagString: Untagged
@@ -1441,6 +1442,27 @@ MonoBehaviour:
   upperRightHinge: {fileID: 1015292653}
   lowerRightHinge: {fileID: 1050963524}
   winZone: {fileID: 1215897270}
+  clawShaker: {fileID: 517910046}
+--- !u!114 &517910046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517910039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1d996591e61f548a837e8684bcd237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectShaker
+  objectTransform: {fileID: 517910043}
+  duration: 2
+  strength: {x: 0.03, y: 0.05, z: 0}
+  vibrato: 5
+  randomness: 3
+  snapping: 0
+  fadeOut: 1
+  randomnessMode: 0
 --- !u!1 &538859108
 GameObject:
   m_ObjectHideFlags: 0
