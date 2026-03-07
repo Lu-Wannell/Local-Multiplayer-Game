@@ -166,7 +166,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             if (p2GrabbedObjectL != null) { DropObject(p2Grab, p2GrabbedObjectL); p2GrabbedObjectL = null; }
         }
 
-        Debug.Log(p1IsGrounded);
+        //Debug.Log(p1IsGrounded);
         //jump for player one only when on the ground
         if (p1Jump.action.ReadValue<float>() == 1 && p1IsGrounded)
         {
