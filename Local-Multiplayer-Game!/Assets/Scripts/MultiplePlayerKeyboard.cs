@@ -4,12 +4,13 @@ using UnityEngine.InputSystem;
 
 public class MultiplePlayerKeyboard : MonoBehaviour
 {
+    #region Variables
     [Header("Actions (drag from your Input Actions asset")] // Adds a label in the inspector for organisation
-    [SerializeField] private InputActionReference p1Move;
+    [SerializeField] public InputActionReference p1Move;
     [SerializeField] private InputActionReference p1Jump;
     [SerializeField] private InputActionReference p1Grab;
 
-    [SerializeField] private InputActionReference p2Move;
+    [SerializeField] public InputActionReference p2Move;
     [SerializeField] private InputActionReference p2Jump;
     [SerializeField] private InputActionReference p2Grab;
 
@@ -27,7 +28,6 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private Transform p1ClawL;
     [SerializeField] private Transform p2ClawR;
     [SerializeField] private Transform p2ClawL;
-
 
     [SerializeField] private Rigidbody rb1;
     [SerializeField] private Rigidbody rb2;
@@ -51,12 +51,28 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] public GameObject p2GrabbableObjectR;
     [SerializeField] public GameObject p2GrabbableObjectL;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem p1DustParticles;
+    [SerializeField] private ParticleSystem p2DustParticles;
+
+    [SerializeField] private Vector2 p1DustStartPos;
+    [SerializeField] private Vector2 p2DustStartPos;
+
     [Header("Level")]
     [SerializeField] private bool p1IsGrounded = true;
     [SerializeField] private bool p2IsGrounded = true;
 
     [Header("Scripts")]
     [SerializeField] private RoundController roundController;
+
+
+    #endregion
+
+    private void Start()
+    {
+        p1DustStartPos = p1DustParticles.transform.localPosition;
+        p2DustStartPos = p2DustParticles.transform.localPosition;
+    }
 
     private void OnEnable()        //Called when the component becomes enabled/active
     {
@@ -87,15 +103,26 @@ public class MultiplePlayerKeyboard : MonoBehaviour
 
         if (redTrigger.canWalk)
         {
-
+            if (!p1DustParticles.isPlaying) { p1DustParticles.Play(); }
             if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed * Time.deltaTime;       //Only move player 1 if the transform reference exists and if can walk;
-
-
+            if (m1 > 0) { p1DustParticles.transform.localPosition = p1DustStartPos; p1DustParticles.transform.rotation = Quaternion.Euler(0, 0, 0); }
+            else if (m1 < 0) 
+            {
+                Vector2 ParticlePos = p1DustStartPos;
+                ParticlePos.x = +1f;
+                p1DustParticles.transform.localPosition = ParticlePos;                
+                p1DustParticles.transform.rotation = Quaternion.Euler(0, 180, 0); 
+            }
+            else { p1DustParticles.Stop(); }
         }
         else if (p1currentAngle >= -60f && p1currentAngle <= 60f) //if crab tipped over but still within angle range it has slightly slower speed
-        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime; }
+        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime;
+            p1DustParticles.Stop();
+        }
         else //large speed reduction when not able to touch ground with either set of legs
-        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed / 16 * Time.deltaTime; }
+        { if (p1) p1.position += new Vector3(m1, 0f, 0f) * currentSpeed / 16 * Time.deltaTime;
+            p1DustParticles.Stop();
+        }
        
 
         float p2eularZ = p2.transform.eulerAngles.z;
@@ -104,12 +131,27 @@ public class MultiplePlayerKeyboard : MonoBehaviour
         
         if (greenTrigger.canWalk)
         {
+            if (!p2DustParticles.isPlaying)
+            { p2DustParticles.Play(); }
             if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed * Time.deltaTime;       //Only move player 2 if the transform reference exists and if can walk;
+            if (m2 > 0) { p2DustParticles.transform.localPosition = p2DustStartPos; p2DustParticles.transform.rotation = Quaternion.Euler(0, 0, 0); }
+            else if (m2 < 0)
+            {
+                Vector2 ParticlePos = p2DustStartPos;
+                ParticlePos.x = +1f;
+                p2DustParticles.transform.localPosition = ParticlePos;               
+                p2DustParticles.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else { p2DustParticles.Stop(); }
         }
         else if (p2currentAngle >= -60f && p2currentAngle <= 60f) //if crab tipped over but still within angle range it has slightly slower speed
-        { if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime; }
+        { if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed / 3 * 2 * Time.deltaTime;
+            p2DustParticles.Stop();
+        }
         else //large speed reduction when not able to touch ground with either set of legs
-        { if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed / 16 * Time.deltaTime; }
+        { if (p2) p2.position += new Vector3(m2, 0f, 0f) * currentSpeed / 16 * Time.deltaTime;
+            p2DustParticles.Stop();
+        }
 
 
         // checks the direction of the rotation for player One
