@@ -58,6 +58,8 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private Vector2 p1DustStartPos;
     [SerializeField] private Vector2 p2DustStartPos;
 
+    [SerializeField] private float dustAdjustor = 0.4f;
+
     [Header("Level")]
     [SerializeField] private bool p1IsGrounded = true;
     [SerializeField] private bool p2IsGrounded = true;
@@ -109,7 +111,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             else if (m1 < 0) 
             {
                 Vector2 ParticlePos = p1DustStartPos;
-                ParticlePos.x = +1f;
+                ParticlePos.x = +dustAdjustor;
                 p1DustParticles.transform.localPosition = ParticlePos;                
                 p1DustParticles.transform.rotation = Quaternion.Euler(0, 180, 0); 
             }
@@ -138,7 +140,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             else if (m2 < 0)
             {
                 Vector2 ParticlePos = p2DustStartPos;
-                ParticlePos.x = +1f;
+                ParticlePos.x = +dustAdjustor;
                 p2DustParticles.transform.localPosition = ParticlePos;               
                 p2DustParticles.transform.rotation = Quaternion.Euler(0, 180, 0);
             }
