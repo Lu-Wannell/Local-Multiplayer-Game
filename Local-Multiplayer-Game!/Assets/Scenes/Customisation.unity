@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 155743627}
   - component: {fileID: 155743626}
   - component: {fileID: 155743625}
+  - component: {fileID: 155743628}
   m_Layer: 5
   m_Name: R
   m_TagString: Untagged
@@ -292,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225.34, y: -3.0061}
+  m_AnchoredPosition: {x: -216, y: -3.0061}
   m_SizeDelta: {x: 46.357, y: 39.672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155743625
@@ -338,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 155743626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 155743628}
+        m_TargetAssemblyTypeName: OptionCycler, Assembly-CSharp
+        m_MethodName: NextAccessory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &155743626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +390,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155743623}
   m_CullTransparentMesh: 1
+--- !u!114 &155743628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155743623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9bb0793c85b364fa04f20f94185d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionCycler
+  accessoryText: {fileID: 141349960}
+  accessories:
+  - Crown
+  - Cowboy Hat
+  - Tophat
+  - Mohawk
+  - Glasses
+  - Monocle
 --- !u!1 &199289482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,6 +2555,7 @@ GameObject:
   - component: {fileID: 1185446002}
   - component: {fileID: 1185446001}
   - component: {fileID: 1185446000}
+  - component: {fileID: 1185446003}
   m_Layer: 5
   m_Name: L
   m_TagString: Untagged
@@ -2546,7 +2580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -484.17096, y: -6}
+  m_AnchoredPosition: {x: -474.83096, y: -6}
   m_SizeDelta: {x: 46.357, y: 39.672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185446000
@@ -2592,7 +2626,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1185446001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1185446003}
+        m_TargetAssemblyTypeName: OptionCycler, Assembly-CSharp
+        m_MethodName: PreviousAccessory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1185446001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2631,6 +2677,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185445998}
   m_CullTransparentMesh: 1
+--- !u!114 &1185446003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185445998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9bb0793c85b364fa04f20f94185d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionCycler
+  accessoryText: {fileID: 1924175205}
+  accessories:
+  - Crown
+  - Cowboy Hat
+  - Tophat
+  - Mohawk
+  - Glasses
+  - Monocle
 --- !u!1 &1214241341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,14 +2863,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9bb0793c85b364fa04f20f94185d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionCycler
-  textUI: {fileID: 141349960}
-  options:
-  - Hat
+  accessoryText: {fileID: 141349960}
+  accessories:
   - Crown
-  - Glasses
-  - Mohawk
-  - Tophat
   - Cowboy Hat
+  - Tophat
+  - Mohawk
+  - Glasses
+  - Monocle
 --- !u!4 &1327143738
 Transform:
   m_ObjectHideFlags: 0
@@ -3348,6 +3414,7 @@ GameObject:
   - component: {fileID: 1742494026}
   - component: {fileID: 1742494025}
   - component: {fileID: 1742494024}
+  - component: {fileID: 1742494027}
   m_Layer: 5
   m_Name: R
   m_TagString: Untagged
@@ -3372,7 +3439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -232.51099, y: -6}
+  m_AnchoredPosition: {x: -223.17099, y: -6}
   m_SizeDelta: {x: 46.357, y: 39.672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742494024
@@ -3418,7 +3485,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1742494025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742494027}
+        m_TargetAssemblyTypeName: OptionCycler, Assembly-CSharp
+        m_MethodName: NextAccessory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1742494025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3457,6 +3536,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742494022}
   m_CullTransparentMesh: 1
+--- !u!114 &1742494027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742494022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9bb0793c85b364fa04f20f94185d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionCycler
+  accessoryText: {fileID: 1924175205}
+  accessories:
+  - Crown
+  - Cowboy Hat
+  - Tophat
+  - Mohawk
+  - Glasses
+  - Monocle
 --- !u!1 &1842376320
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,6 +4008,7 @@ GameObject:
   - component: {fileID: 2139649611}
   - component: {fileID: 2139649610}
   - component: {fileID: 2139649609}
+  - component: {fileID: 2139649612}
   m_Layer: 5
   m_Name: L
   m_TagString: Untagged
@@ -3933,7 +4033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -477, y: -3.0061}
+  m_AnchoredPosition: {x: -467.66, y: -3.0061}
   m_SizeDelta: {x: 46.357, y: 39.672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2139649609
@@ -3979,7 +4079,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2139649610}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2139649612}
+        m_TargetAssemblyTypeName: OptionCycler, Assembly-CSharp
+        m_MethodName: PreviousAccessory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2139649610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4018,6 +4130,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139649607}
   m_CullTransparentMesh: 1
+--- !u!114 &2139649612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139649607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9bb0793c85b364fa04f20f94185d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionCycler
+  accessoryText: {fileID: 141349960}
+  accessories:
+  - Crown
+  - Cowboy Hat
+  - Tophat
+  - Mohawk
+  - Glasses
+  - Monocle
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

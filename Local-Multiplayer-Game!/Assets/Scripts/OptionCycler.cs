@@ -1,33 +1,32 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class OptionCycler : MonoBehaviour
 {
-
-    public TMP_Text textUI;
-    public string[] options = { "Hat", "Crown", "Glasses" };
-
-    int index = 0;
-    float prevInput = 0f;
+    public TMP_Text accessoryText;
+    public List<string> accessories;
+    private int currentIndex = 0;
 
     void Start()
     {
-        textUI.text = options[index];
+        if (accessories.Count > 0)
+            accessoryText.text = accessories[currentIndex];
     }
 
-    public void OnMovement(InputAction.CallbackContext context)
+    public void NextAccessory()
     {
-        Debug.Log("Movement event fired with value: " + context.ReadValue<float>());
-        float input = context.ReadValue<float>();
-        if (input != 0 && prevInput == 0)
-        {
-            index += input > 0 ? 1 : -1;
-            if (index < 0) index = options.Length - 1;
-            else if (index >= options.Length) index = 0;
-            textUI.text = options[index];
-        }
-        prevInput = input;
+        if (accessories.Count == 0) return;
+        currentIndex = (currentIndex + 1) % accessories.Count;
+        accessoryText.text = accessories[currentIndex];
+    }
+
+    public void PreviousAccessory()
+    {
+        if (accessories.Count == 0) return;
+        currentIndex = (currentIndex - 1 + accessories.Count) % accessories.Count;
+        accessoryText.text = accessories[currentIndex];
     }
 }
 
