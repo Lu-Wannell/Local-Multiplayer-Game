@@ -22,7 +22,7 @@ public class WinZone : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         
-        if (other.attachedRigidbody != null && clawController.isClosed && winningPlayerRb == null)
+        if (other.attachedRigidbody != null && clawController.isClosed && winningPlayerRb == null && other.CompareTag("Player"))
         {
             winningPlayerRb = other.attachedRigidbody;
             winningPlayerRb.transform.SetParent(transform);
