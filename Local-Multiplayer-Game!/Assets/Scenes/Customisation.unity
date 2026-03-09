@@ -364,6 +364,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1327143740}
+        m_TargetAssemblyTypeName: AnotherAccessory, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &155743626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2545,6 +2557,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1327143740}
+        m_TargetAssemblyTypeName: AnotherAccessory, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1183901908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2696,6 +2720,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2138249487}
         m_TargetAssemblyTypeName: AssessoriesManager, Assembly-CSharp
+        m_MethodName: Previous
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2138249489}
+        m_TargetAssemblyTypeName: AnotherAccessory, Assembly-CSharp
         m_MethodName: Previous
         m_Mode: 1
         m_Arguments:
@@ -2918,6 +2954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327143738}
   - component: {fileID: 1327143739}
+  - component: {fileID: 1327143740}
   m_Layer: 0
   m_Name: ManagerRed
   m_TagString: Untagged
@@ -2971,6 +3008,28 @@ MonoBehaviour:
   leftButton: {fileID: 2139649607}
   rightButton: {fileID: 155743623}
   nextSceneName: SampleScene
+  currentIndex: 0
+--- !u!114 &1327143740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327143736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0aff990b8fd3f49b28928104283763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnotherAccessory
+  playerID: Player2
+  accessories:
+  - {fileID: 814611132}
+  - {fileID: 1046583104}
+  - {fileID: 1083316488}
+  - {fileID: 783431292}
+  - {fileID: 883378360}
+  - {fileID: 1653838785}
+  selectText: {fileID: 1132368858}
   currentIndex: 0
 --- !u!1 &1404253431
 GameObject:
@@ -3321,6 +3380,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2138249487}
+        m_TargetAssemblyTypeName: AssessoriesManager, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1555850343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3626,6 +3697,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2138249487}
         m_TargetAssemblyTypeName: AssessoriesManager, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2138249489}
+        m_TargetAssemblyTypeName: AnotherAccessory, Assembly-CSharp
         m_MethodName: Next
         m_Mode: 1
         m_Arguments:
@@ -4280,6 +4363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138249488}
   - component: {fileID: 2138249487}
+  - component: {fileID: 2138249489}
   m_Layer: 0
   m_Name: ManagerGreen
   m_TagString: Untagged
@@ -4334,6 +4418,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138249489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138249486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0aff990b8fd3f49b28928104283763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnotherAccessory
+  playerID: Player1
+  accessories:
+  - {fileID: 843779017}
+  - {fileID: 1130130651}
+  - {fileID: 199289482}
+  - {fileID: 2106418133}
+  - {fileID: 430774624}
+  - {fileID: 946737998}
+  selectText: {fileID: 932522979}
+  currentIndex: 0
 --- !u!1 &2139649607
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,6 +4538,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1327143739}
         m_TargetAssemblyTypeName: AssessoriesManager, Assembly-CSharp
+        m_MethodName: Previous
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1327143740}
+        m_TargetAssemblyTypeName: AnotherAccessory, Assembly-CSharp
         m_MethodName: Previous
         m_Mode: 1
         m_Arguments:
