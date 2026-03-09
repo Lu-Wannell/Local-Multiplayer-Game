@@ -740,6 +740,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 585721312}
   - {fileID: 1476107850}
   - {fileID: 1490929267}
   - {fileID: 538859109}
@@ -749,7 +750,6 @@ Transform:
   - {fileID: 122885553}
   - {fileID: 1607732876}
   - {fileID: 1652394447}
-  - {fileID: 585721312}
   m_Father: {fileID: 1497220436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &112705708
@@ -7986,6 +7986,8 @@ GameObject:
   m_Component:
   - component: {fileID: 585721312}
   - component: {fileID: 585721313}
+  - component: {fileID: 585721314}
+  - component: {fileID: 585721315}
   m_Layer: 0
   m_Name: Assessories
   m_TagString: Untagged
@@ -8027,6 +8029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssessoriesManager
   accessoryText: {fileID: 0}
+  selectText: {fileID: 0}
   accessoryNames:
   - Crown
   - Cowboy hat
@@ -8043,6 +8046,48 @@ MonoBehaviour:
   - {fileID: 100205948}
   leftButton: {fileID: 0}
   rightButton: {fileID: 0}
+  nextSceneName: 
+  currentIndex: 0
+--- !u!114 &585721314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585721311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecdda2b9c39528418300e779f12134b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlternativeAccessory
+  playerID: Player1
+  accessories:
+  - {fileID: 1810928934}
+  - {fileID: 1144921150}
+  - {fileID: 161561235}
+  - {fileID: 37317946}
+  - {fileID: 530974959}
+  - {fileID: 100205948}
+--- !u!114 &585721315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585721311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0aff990b8fd3f49b28928104283763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnotherAccessory
+  playerID: Player1
+  accessories:
+  - {fileID: 1810928934}
+  - {fileID: 1144921150}
+  - {fileID: 161561235}
+  - {fileID: 37317946}
+  - {fileID: 530974959}
+  - {fileID: 100205948}
   selectText: {fileID: 0}
   currentIndex: 0
 --- !u!1 &628665110
@@ -14620,6 +14665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144529838}
   - component: {fileID: 1144529839}
+  - component: {fileID: 1144529840}
   m_Layer: 0
   m_Name: Assessories
   m_TagString: Untagged
@@ -14661,6 +14707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssessoriesManager
   accessoryText: {fileID: 0}
+  selectText: {fileID: 0}
   accessoryNames:
   - Crown
   - Cowboy hat
@@ -14677,8 +14724,28 @@ MonoBehaviour:
   - {fileID: 459770017}
   leftButton: {fileID: 0}
   rightButton: {fileID: 0}
-  selectText: {fileID: 0}
+  nextSceneName: 
   currentIndex: 0
+--- !u!114 &1144529840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144529837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecdda2b9c39528418300e779f12134b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlternativeAccessory
+  playerID: Player2
+  accessories:
+  - {fileID: 2100300506}
+  - {fileID: 760403254}
+  - {fileID: 181892685}
+  - {fileID: 1611347798}
+  - {fileID: 1752631486}
+  - {fileID: 459770017}
 --- !u!1 &1144921150
 GameObject:
   m_ObjectHideFlags: 0
