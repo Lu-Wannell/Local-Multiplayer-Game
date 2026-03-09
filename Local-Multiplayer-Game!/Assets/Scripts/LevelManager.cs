@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Customisation");
     }
 
     public void QuitGame()

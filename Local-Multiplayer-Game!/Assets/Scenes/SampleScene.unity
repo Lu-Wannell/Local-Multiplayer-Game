@@ -422,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &37317947
 Transform:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &100205949
 Transform:
   m_ObjectHideFlags: 0
@@ -749,6 +749,7 @@ Transform:
   - {fileID: 122885553}
   - {fileID: 1607732876}
   - {fileID: 1652394447}
+  - {fileID: 585721312}
   m_Father: {fileID: 1497220436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &112705708
@@ -5947,7 +5948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &161561236
 Transform:
   m_ObjectHideFlags: 0
@@ -6038,7 +6039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &181892686
 Transform:
   m_ObjectHideFlags: 0
@@ -7375,7 +7376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &459770018
 Transform:
   m_ObjectHideFlags: 0
@@ -7718,7 +7719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &530974960
 Transform:
   m_ObjectHideFlags: 0
@@ -7984,6 +7985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 585721312}
+  - component: {fileID: 585721313}
   m_Layer: 0
   m_Name: Assessories
   m_TagString: Untagged
@@ -8000,7 +8002,7 @@ Transform:
   m_GameObject: {fileID: 585721311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.179, y: 0, z: 0}
+  m_LocalPosition: {x: 5.749, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8010,8 +8012,39 @@ Transform:
   - {fileID: 37317947}
   - {fileID: 530974960}
   - {fileID: 100205949}
-  m_Father: {fileID: 1497220436}
+  m_Father: {fileID: 112705707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &585721313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585721311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b496df763d50dad47bfd856e39708396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssessoriesManager
+  accessoryText: {fileID: 0}
+  accessoryNames:
+  - Crown
+  - Cowboy hat
+  - Tophat
+  - Mohawk
+  - Glasses
+  - Monocle
+  accessories:
+  - {fileID: 1810928934}
+  - {fileID: 1144921150}
+  - {fileID: 161561235}
+  - {fileID: 37317946}
+  - {fileID: 530974959}
+  - {fileID: 100205948}
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  selectText: {fileID: 0}
+  currentIndex: 0
 --- !u!1 &628665110
 GameObject:
   m_ObjectHideFlags: 0
@@ -12984,7 +13017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &760403255
 Transform:
   m_ObjectHideFlags: 0
@@ -14586,6 +14619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1144529838}
+  - component: {fileID: 1144529839}
   m_Layer: 0
   m_Name: Assessories
   m_TagString: Untagged
@@ -14614,6 +14648,37 @@ Transform:
   - {fileID: 459770018}
   m_Father: {fileID: 239409170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144529839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144529837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b496df763d50dad47bfd856e39708396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssessoriesManager
+  accessoryText: {fileID: 0}
+  accessoryNames:
+  - Crown
+  - Cowboy hat
+  - Tophat
+  - Mohawk
+  - Glasses
+  - Monocle
+  accessories:
+  - {fileID: 2100300506}
+  - {fileID: 760403254}
+  - {fileID: 181892685}
+  - {fileID: 1611347798}
+  - {fileID: 1752631486}
+  - {fileID: 459770017}
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  selectText: {fileID: 0}
+  currentIndex: 0
 --- !u!1 &1144921150
 GameObject:
   m_ObjectHideFlags: 0
@@ -14630,7 +14695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1144921151
 Transform:
   m_ObjectHideFlags: 0
@@ -21313,7 +21378,6 @@ Transform:
   - {fileID: 1417548594}
   - {fileID: 239409170}
   - {fileID: 112705707}
-  - {fileID: 585721312}
   - {fileID: 909457685}
   - {fileID: 1700189463}
   m_Father: {fileID: 0}
@@ -21344,7 +21408,7 @@ Transform:
   m_GameObject: {fileID: 1529803304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.87, y: 0, z: 0.44}
+  m_LocalPosition: {x: 9.01, y: 0, z: 0.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21698,7 +21762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1611347799
 Transform:
   m_ObjectHideFlags: 0
@@ -22071,7 +22135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1752631487
 Transform:
   m_ObjectHideFlags: 0
@@ -22162,7 +22226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1810928935
 Transform:
   m_ObjectHideFlags: 0
@@ -22693,7 +22757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2100300507
 Transform:
   m_ObjectHideFlags: 0
