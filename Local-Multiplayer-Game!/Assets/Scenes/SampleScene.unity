@@ -144,13 +144,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10289502}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.8173365, w: 0.5761606}
-  m_LocalPosition: {x: -0.034, y: 0.09, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.6464887, w: 0.7629236}
+  m_LocalPosition: {x: -0.034000065, y: 0.08999996, z: 0}
   m_LocalScale: {x: 0.1789286, y: 0.1560096, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1244748576}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 109.638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80.555}
 --- !u!212 &10289504
 SpriteRenderer:
   serializedVersion: 2
@@ -6311,8 +6311,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5784167
+  m_Center: {x: -0.0046128035, y: 0, z: 0}
 --- !u!23 &361866420
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13604,8 +13604,11 @@ GameObject:
   - component: {fileID: 1244748574}
   - component: {fileID: 1244748573}
   - component: {fileID: 1244748572}
+  - component: {fileID: 1244748579}
+  - component: {fileID: 1244748578}
+  - component: {fileID: 1244748577}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Collectable Claw
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13657,8 +13660,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6653333, y: 0.20747411, z: 1}
+  m_Center: {x: 0.16733205, y: -0.1925721, z: 0}
 --- !u!23 &1244748574
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13732,6 +13735,69 @@ Transform:
   - {fileID: 10289503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1244748577
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244748571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.26394698, y: 0.16348086, z: 1}
+  m_Center: {x: -0.2498519, y: -0.16986091, z: 0}
+--- !u!65 &1244748578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244748571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.79403913, y: 0.45936787, z: 1}
+  m_Center: {x: -0.22790566, y: 0.14976981, z: 0}
+--- !u!65 &1244748579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244748571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92571837, y: 0.18174598, z: 1}
+  m_Center: {x: -0.037139818, y: 0.34702742, z: 0}
 --- !u!1 &1258926240
 GameObject:
   m_ObjectHideFlags: 0
@@ -18887,6 +18953,18 @@ MonoBehaviour:
   p1ClawL: {fileID: 1486901053}
   p2ClawR: {fileID: 1490929267}
   p2ClawL: {fileID: 1476107850}
+  clawGR: {fileID: 1084668560}
+  clawGL: {fileID: 1086977961}
+  clawRR: {fileID: 1985032718}
+  clawRL: {fileID: 1588946479}
+  closedGR: {fileID: -1047449993, guid: d3cf4c9137ecbc74d9732545db22535e, type: 3}
+  closedGL: {fileID: -1624443784206557428, guid: 59aafe4aac693ce4f9fea65d465ad4d2, type: 3}
+  closedRR: {fileID: -4973734876168720973, guid: 391456cb57cbf594eb74d736e0e5d952, type: 3}
+  closedRL: {fileID: -261894156545025837, guid: 8a15c3b23a846584f9776ef43cc1dcb6, type: 3}
+  openGR: {fileID: 5827771129118859716, guid: 8f312c55406a11d4898b219c1ec6f8f4, type: 3}
+  openGL: {fileID: 761021462076473896, guid: 5fcb7b4996bf50441b50d3c1d17849c5, type: 3}
+  openRR: {fileID: -8393719188595736880, guid: a57401b28e2cc2748b9531dd61cad77a, type: 3}
+  openRL: {fileID: -4377035830567702652, guid: 556ec6741e814c84bbd8e3bc6212f633, type: 3}
   rb1: {fileID: 239409166}
   rb2: {fileID: 112705706}
   redTrigger: {fileID: 1455206890}

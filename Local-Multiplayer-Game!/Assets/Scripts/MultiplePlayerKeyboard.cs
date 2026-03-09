@@ -29,6 +29,21 @@ public class MultiplePlayerKeyboard : MonoBehaviour
     [SerializeField] private Transform p2ClawR;
     [SerializeField] private Transform p2ClawL;
 
+    public SpriteRenderer clawGR;
+    public SpriteRenderer clawGL;
+    public SpriteRenderer clawRR;
+    public SpriteRenderer clawRL;   
+
+    public Sprite closedGR;
+    public Sprite closedGL;
+    public Sprite closedRR;
+    public Sprite closedRL;
+    public Sprite openGR;
+    public Sprite openGL;
+    public Sprite openRR;
+    public Sprite openRL;
+
+
     [SerializeField] private Rigidbody rb1;
     [SerializeField] private Rigidbody rb2;
 
@@ -166,7 +181,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             if (p1) p1.RotateAround(p1ClawL.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
             //Debug.Log(p1GrabbedObjectL);
             if (p1GrabbedObjectL != null) { GrabObject(p1Grab, p1GrabbedObjectL, p1ClawL); }
-            
+            clawRL.sprite = closedRL;
         }
         else if(g1> 0)//Right Claw
         {
@@ -176,11 +191,14 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             if (p1) p1.RotateAround(p1ClawR.position, new Vector3(0f, 0f, g1), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;     
             //Debug.Log("Right");
             if (p1GrabbedObjectR != null) { GrabObject(p1Grab, p1GrabbedObjectR, p1ClawR); }
+            clawRR.sprite = closedRR;
         }
         else
         {
             if (p1GrabbedObjectR != null) { DropObject(p1Grab, p1GrabbedObjectR); p1GrabbedObjectR = null; }
             if (p1GrabbedObjectL != null) { DropObject(p1Grab, p1GrabbedObjectL); p1GrabbedObjectL = null; }
+            clawRL.sprite = openRL;
+            clawRR.sprite = openRR;
         }
 
         // checks the direction of the rotation for player Two
@@ -193,6 +211,7 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             if (p2) p2.RotateAround(p2ClawL.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;
             //Debug.Log(p1GrabbedObjectL);
             if (p2GrabbedObjectL != null) { GrabObject(p2Grab, p2GrabbedObjectL, p2ClawL); }
+            clawGL.sprite = closedGL;
 
         }
         else if (g2 > 0)//Right Claw
@@ -203,11 +222,14 @@ public class MultiplePlayerKeyboard : MonoBehaviour
             if (p2) p2.RotateAround(p2ClawR.position, new Vector3(0f, 0f, g2), -rotationSpeed * Time.deltaTime);   //Only rotate player 1 if the transform reference exists;     
             //Debug.Log("Right");
             if (p2GrabbedObjectR != null) { GrabObject(p2Grab, p2GrabbedObjectR, p2ClawR); }
+            clawGR.sprite = closedGR;
         }
         else
         {
             if (p2GrabbedObjectR != null) { DropObject(p2Grab, p2GrabbedObjectR); p2GrabbedObjectR = null; }
             if (p2GrabbedObjectL != null) { DropObject(p2Grab, p2GrabbedObjectL); p2GrabbedObjectL = null; }
+            clawGL.sprite = openGL;
+            clawGR.sprite = openGR;
         }
 
         //Debug.Log(p1IsGrounded);
