@@ -36,12 +36,13 @@ public class ClawController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       /* upperLeftHinge = GetComponent<HingeJoint>();
+        clawReset();
+        /* upperLeftHinge = GetComponent<HingeJoint>();
         lowerLeftHinge = GetComponent<HingeJoint>();
         upperRightHinge = GetComponent<HingeJoint>();
         lowerRightHinge = GetComponent<HingeJoint>();*/
 
-        
+
     }
 
     // Update is called once per frame
