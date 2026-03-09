@@ -5,28 +5,36 @@ using UnityEngine.InputSystem;
 
 public class OptionCycler : MonoBehaviour
 {
+
     public TMP_Text accessoryText;
     public List<string> accessories;
-    private int currentIndex = 0;
+    public List<GameObject> accessoryImages;
+
+    int currentIndex = 0;
 
     void Start()
     {
-        if (accessories.Count > 0)
-            accessoryText.text = accessories[currentIndex];
+        UpdateAccessory();
     }
 
     public void NextAccessory()
     {
-        if (accessories.Count == 0) return;
         currentIndex = (currentIndex + 1) % accessories.Count;
-        accessoryText.text = accessories[currentIndex];
+        UpdateAccessory();
     }
 
     public void PreviousAccessory()
     {
-        if (accessories.Count == 0) return;
         currentIndex = (currentIndex - 1 + accessories.Count) % accessories.Count;
+        UpdateAccessory();
+    }
+
+    void UpdateAccessory()
+    {
         accessoryText.text = accessories[currentIndex];
+
+        for (int i = 0; i < accessoryImages.Count; i++)
+            accessoryImages[i].SetActive(i == currentIndex);
     }
 }
 

@@ -410,6 +410,13 @@ MonoBehaviour:
   - Mohawk
   - Glasses
   - Monocle
+  accessoryImages:
+  - {fileID: 814611132}
+  - {fileID: 1046583104}
+  - {fileID: 1083316488}
+  - {fileID: 783431292}
+  - {fileID: 883378360}
+  - {fileID: 1653838785}
 --- !u!1 &199289482
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,9 +549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'J/L to change
-
-    K to select'
+  m_text: Player Two
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1192,9 +1197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A/D to change
-
-    S to select'
+  m_text: Player One
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2344,8 +2347,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Customise your Crab!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2433,6 +2436,7 @@ GameObject:
   - component: {fileID: 1183901906}
   - component: {fileID: 1183901909}
   - component: {fileID: 1183901908}
+  - component: {fileID: 1183901910}
   - component: {fileID: 1183901907}
   m_Layer: 5
   m_Name: SELECT (1)
@@ -2504,7 +2508,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1183901908}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: OptionCycler, Assembly-CSharp
+        m_MethodName: SelectAccessory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1183901908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2543,6 +2559,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183901905}
   m_CullTransparentMesh: 1
+--- !u!114 &1183901910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183901905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56780774359c9c4fae2714227a0e990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Select
+  selectText: {fileID: 1132368858}
+  leftButton: {fileID: 2139649607}
+  rightButton: {fileID: 155743623}
 --- !u!1 &1185445998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,6 +2728,13 @@ MonoBehaviour:
   - Mohawk
   - Glasses
   - Monocle
+  accessoryImages:
+  - {fileID: 843779017}
+  - {fileID: 1130130651}
+  - {fileID: 199289482}
+  - {fileID: 2106418133}
+  - {fileID: 430774624}
+  - {fileID: 946737998}
 --- !u!1 &1214241341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +2909,7 @@ MonoBehaviour:
   - Mohawk
   - Glasses
   - Monocle
+  accessoryImages: []
 --- !u!4 &1327143738
 Transform:
   m_ObjectHideFlags: 0
@@ -3138,6 +3177,7 @@ GameObject:
   - component: {fileID: 1555850341}
   - component: {fileID: 1555850344}
   - component: {fileID: 1555850343}
+  - component: {fileID: 1555850345}
   - component: {fileID: 1555850342}
   m_Layer: 5
   m_Name: SELECT
@@ -3248,6 +3288,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555850340}
   m_CullTransparentMesh: 1
+--- !u!114 &1555850345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555850340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56780774359c9c4fae2714227a0e990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Select
+  selectText: {fileID: 932522979}
+  leftButton: {fileID: 1185445998}
+  rightButton: {fileID: 1742494022}
 --- !u!1 &1597585840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,6 +3611,13 @@ MonoBehaviour:
   - Mohawk
   - Glasses
   - Monocle
+  accessoryImages:
+  - {fileID: 843779017}
+  - {fileID: 1130130651}
+  - {fileID: 199289482}
+  - {fileID: 2106418133}
+  - {fileID: 430774624}
+  - {fileID: 946737998}
 --- !u!1 &1784008427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4279,6 +4341,13 @@ MonoBehaviour:
   - Mohawk
   - Glasses
   - Monocle
+  accessoryImages:
+  - {fileID: 814611132}
+  - {fileID: 1046583104}
+  - {fileID: 1083316488}
+  - {fileID: 783431292}
+  - {fileID: 883378360}
+  - {fileID: 1653838785}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
